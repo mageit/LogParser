@@ -1,4 +1,5 @@
 import React from "react";
+import {analyseLogfile} from "@/services/api";
 
 const LogParserUploader = () => {
     const [file, setFile] = React.useState<File | null>(null);
@@ -10,7 +11,7 @@ const LogParserUploader = () => {
     };
 
     const handleUpload = async () => {
-
+        analyseLogfile();
     }
 
     return (

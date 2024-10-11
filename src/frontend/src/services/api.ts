@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const analyseLogfile = async (file: File) => {
     const formData = new FormData();
-    formData.append('logs', file);
+    formData.append('logFile', file);
 
     try {
         const response = await axios.post('http://localhost:8080/api/v1/parse', formData, {

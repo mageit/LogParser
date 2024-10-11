@@ -21,7 +21,7 @@ class ParserController(
     fun parseLogs(
         @Valid @ModelAttribute parseRequest: LogRequestDto,
     ): LogResponse {
-        when (val parseResult = parserService.parseLogs(parseRequest.logs)) {
+        when (val parseResult = parserService.parseLogs(parseRequest.logFile.inputStream)) {
             is ParseResult.Success -> {
                 return LogResponse(parseResult.result)
             }

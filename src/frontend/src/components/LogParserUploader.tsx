@@ -3,6 +3,7 @@ import {analyseLogfile} from "@/services/api";
 
 const LogParserUploader = () => {
     const [file, setFile] = React.useState<File | null>(null);
+    const [isBusy, setIsBusy] = React.useState(false);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.files) {
@@ -11,7 +12,11 @@ const LogParserUploader = () => {
     };
 
     const handleUpload = async () => {
-        analyseLogfile(file as File);
+        setIsBusy(true);
+        await analyseLogfile(file as File);
+        setIsBusy(false);
+
+
     }
 
     return (
@@ -30,11 +35,16 @@ const LogParserUploader = () => {
                 </section>
             )}
 
-            {file && (
+            {file &&  !isBusy && (
                 <button
                     onClick={handleUpload}
                     className="Start Analyse"
+                    disabled={isBusy}
                 >Upload a file</button>
+            )}
+
+            {isBusy && (
+                <p>Processing...</p>
             )}
         </>
     );

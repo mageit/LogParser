@@ -11,7 +11,7 @@ const LogParserUploader = () => {
     };
 
     const handleUpload = async () => {
-        analyseLogfile();
+        analyseLogfile(file as File);
     }
 
     return (

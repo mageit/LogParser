@@ -5,7 +5,7 @@ export const analyseLogfile = async (file: File) => {
     formData.append('logs', file);
 
     try {
-        const response = await axios.post('http://localhost:8080/parse', formData, {
+        const response = await axios.post('http://localhost:8080/api/v1/parse', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

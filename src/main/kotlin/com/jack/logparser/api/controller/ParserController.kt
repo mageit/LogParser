@@ -1,5 +1,6 @@
 package com.jack.logparser.api.controller
 
+import com.jack.logparser.ApiMappings
 import com.jack.logparser.api.request.LogRequestDto
 import com.jack.logparser.api.response.LogResponse
 import com.jack.logparser.api.response.ParseResult
@@ -16,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException
 class ParserController(
     private val parserService: ParserService,
 ) {
-    @PostMapping("/parse")
+    @PostMapping(ApiMappings.V1.API + "/parse")
     fun parseLogs(
         @Valid @ModelAttribute parseRequest: LogRequestDto,
     ): LogResponse {

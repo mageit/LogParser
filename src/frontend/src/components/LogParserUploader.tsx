@@ -1,9 +1,12 @@
 import React from "react";
 import {analyseLogfile} from "@/services/api";
+import {AnalyseResult} from "@/types/LogParserTypes";
+import {parserStateVars} from "@/hooks/ParserState";
 
 const LogParserUploader = () => {
     const [file, setFile] = React.useState<File | null>(null);
     const [isBusy, setIsBusy] = React.useState(false);
+    const {setTopThreeActiveIPs, setTopThreeVisitedUrls,setUniqueIpCounter} = parserStateVars();
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.files) {
@@ -13,9 +16,13 @@ const LogParserUploader = () => {
 
     const handleUpload = async () => {
         setIsBusy(true);
-        await analyseLogfile(file as File);
+        const result: AnalyseResult | undefined = await analyseLogfile(file as File);
+        if(result) {
+            setTopThreeActiveIPs(result.topThreeActiveIPs);
+            setTopThreeVisitedUrls(result.topThreeVisitedUrls);
+            setUniqueIpCounter(result.uniqueIpCounter);
+        }
         setIsBusy(false);
-
 
     }
 
@@ -38,9 +45,8 @@ const LogParserUploader = () => {
             {file &&  !isBusy && (
                 <button
                     onClick={handleUpload}
-                    className="Start Analyse"
                     disabled={isBusy}
-                >Upload a file</button>
+                >Start Analyse</button>
             )}
 
             {isBusy && (

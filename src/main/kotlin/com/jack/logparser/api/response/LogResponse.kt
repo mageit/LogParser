@@ -1,10 +1,10 @@
 package com.jack.logparser.api.response
 
-import com.jack.logparser.entities.LogAnalysis
+import com.jack.logparser.entities.AnalysedResultType
 
 sealed class ParseResult {
     data class Success(
-        val result: LogAnalysis,
+        val result: AnalysedResultType,
     ) : ParseResult()
 
     data class Failure(
@@ -13,5 +13,5 @@ sealed class ParseResult {
 }
 
 data class LogResponse(
-    val result: LogAnalysis,
+    val result: AnalysedResultType,
 )

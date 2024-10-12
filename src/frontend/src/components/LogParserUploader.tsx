@@ -36,7 +36,12 @@ const LogParserUploader = () => {
   return (
     <>
       <div className="uploader">
-        <input type="file" accept=".log" onChange={handleFileChange} data-testid="log-file-upload-button" />
+        <input
+          type="file"
+          accept=".log"
+          onChange={handleFileChange}
+          data-testid="log-file-upload-button"
+        />
       </div>
       {file && (
         <section>

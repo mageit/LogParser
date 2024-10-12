@@ -11,8 +11,8 @@ const Home: React.FC = (): React.ReactElement => {
         <strong>.log</strong> format
       </p>
       <p>
-        Once you&apos;ve uploaded a compatible log file, the analysis process will
-        commence automatically.
+        Once you&apos;ve uploaded a compatible log file, the analysis process
+        will commence automatically.
       </p>
       <hr />
       <br />

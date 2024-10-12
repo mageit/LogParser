@@ -4,18 +4,18 @@ import React from "react";
 import { HashRouter } from "react-router-dom";
 
 const RouterWrapper = ({
-                           children,
-                       }: {
-    children: JSX.Element;
+  children,
+}: {
+  children: JSX.Element;
 }): JSX.Element => {
-    return <HashRouter>{children}</HashRouter>;
+  return <HashRouter>{children}</HashRouter>;
 };
 
 export const render = (
-    ui: JSX.Element,
-    options: RenderOptions = {},
-    route = "/",
+  ui: JSX.Element,
+  options: RenderOptions = {},
+  route = "/",
 ): RenderResult => {
-    window.history.pushState({}, "", route);
-    return rtlRender(ui, { wrapper: RouterWrapper, ...options });
+  window.history.pushState({}, "", route);
+  return rtlRender(ui, { wrapper: RouterWrapper, ...options });
 };

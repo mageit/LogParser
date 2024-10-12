@@ -17,6 +17,10 @@ class ParserService {
                 lines.forEach { line ->
                     try {
                         val ip = line.substringBefore(" ")
+                        if (!Helper.isValidIP(ip)) {
+                            return ParseResult.Failure("Invalid IP address: $ip")
+                        }
+
                         val urlRegex =
                             """((GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS|TRACE|CONNECT)\s+((?:https?://[^/\s]+)?/[^\s]*))(\s+HTTP/[0-9.]+)?"""
                                 .toRegex()

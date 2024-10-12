@@ -75,4 +75,17 @@ class ParserServiceTests {
         assertEquals(2, successResult.result.topThreeActiveIPs.size)
         assertEquals(1, successResult.result.topThreeVisitedUrls.size)
     }
+
+    @Test
+    fun `test parseLogs with invalid ip in log file`() {
+        val fileContent =
+            """
+            xxx.xxx.41.122 - - [11/Jul/2018:17:41:30 +0200] "GET /this/page/does/not/exist/ HTTP/1.1" 404 3574 "-" "Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; HTC Vision Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+            """.trimIndent().byteInputStream()
+        val mockFile = MockMultipartFile("file", "logfile.log", MediaType.TEXT_PLAIN_VALUE, fileContent)
+        val parseRequest = LogRequestDto(mockFile)
+        val parseResult = parserService.parseLogs(parseRequest.logFile.inputStream)
+
+        assert(parseResult is ParseResult.Failure)
+    }
 }

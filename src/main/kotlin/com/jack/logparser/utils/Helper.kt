@@ -14,4 +14,9 @@ object Helper {
             .sortedByDescending { it.value }
             .take(3)
             .map { it.key }
+
+    fun isValidIP(ip: String): Boolean {
+        val ipRegex = """\b(?:\d{1,3}\.){3}\d{1,3}\b""".toRegex()
+        return ipRegex.matches(ip)
+    }
 }

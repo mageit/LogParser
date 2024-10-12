@@ -60,6 +60,17 @@ For a streamlined development experience, using IntelliJ IDEA is recommended. It
 - Find the bootrun task and double-click it to run the backend.
 
 ## Unit test
+### Frontend
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+2. Run the following command:
+```bash
+npm test
+```
+
+### Backend
 1. Navigate to the root directory:
 ```bash
 cd LogParser

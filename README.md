@@ -24,6 +24,14 @@ Java SDK: Version 21 or higher (Amazon Corretto 21 in IntelliJ IDEA)
 `│   ├──`[`test`] — Contains the kotlin backend test code.<br>
 `└- ──`[`frontend`] — Contains the React typescript frontend.<br>
 
+## API Endpoint 
+You can use Postman to test the API endpoint.
+- **Endpoint**: /api/v1/parse
+- **Method**: POST
+- Request Body:
+  - **Content-Type**: multipart/form-data
+  - **Key**: logFile
+  - **Value**: A file object representing the log file to be parsed.
 
 ## Project Setup
 ### Frontend Installation

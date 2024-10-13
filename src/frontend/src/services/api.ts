@@ -17,6 +17,6 @@ export const analyseLogfile = async (file: File) => {
     );
     return response.data.result;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 };

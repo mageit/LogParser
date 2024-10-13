@@ -11,6 +11,8 @@ const LogParserUploader = () => {
     setTopThreeVisitedUrls,
     setUniqueIpCounter,
     setDisplaySummary,
+    setErrorOccurred,
+    resetState,
   } = parserStateVars();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,18 +21,32 @@ const LogParserUploader = () => {
     }
   };
 
-  const handleUpload = async () => {
-    setIsBusy(true);
-    const result: AnalyseResult | undefined = await analyseLogfile(
-      file as File,
-    );
-    if (result) {
-      setTopThreeActiveIPs(result.topThreeActiveIPs);
-      setTopThreeVisitedUrls(result.topThreeVisitedUrls);
-      setUniqueIpCounter(result.uniqueIpCounter);
-    }
+  const handleReset = () => {
+    resetState();
+    setFile(null);
     setIsBusy(false);
-    setDisplaySummary(true);
+  };
+
+  const handleUpload = async () => {
+    try {
+      resetState();
+      setIsBusy(true);
+      const result: AnalyseResult | undefined = await analyseLogfile(
+        file as File,
+      );
+      if (result) {
+        setTopThreeActiveIPs(result.topThreeActiveIPs);
+        setTopThreeVisitedUrls(result.topThreeVisitedUrls);
+        setUniqueIpCounter(result.uniqueIpCounter);
+      }
+      setIsBusy(false);
+      setDisplaySummary(true);
+    } catch (error) {
+      console.log("error:", error);
+      setErrorOccurred(true);
+    } finally {
+      setIsBusy(false);
+    }
   };
 
   return (
@@ -42,6 +58,7 @@ const LogParserUploader = () => {
           onChange={handleFileChange}
           data-testid="log-file-upload-button"
         />
+        <button onClick={handleReset}>Reset</button>
       </div>
       {file && (
         <section>

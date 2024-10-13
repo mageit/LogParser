@@ -10,15 +10,26 @@ interface AnalyseLogfileResponse {
   };
 }
 
-interface ParserStateType {
+interface StateVariable {
   topThreeActiveIPs: string[];
-  setTopThreeActiveIPs: (ips: string[]) => void;
   topThreeVisitedUrls: string[];
-  setTopThreeVisitedUrls: (urls: string[]) => void;
   uniqueIpCounter: number;
-  setUniqueIpCounter: (count: number) => void;
   displaySummary: boolean;
-  setDisplaySummary: (display: boolean) => void;
+  errorOccurred: boolean;
 }
 
-export type { AnalyseLogfileResponse, AnalyseResult, ParserStateType };
+interface ParserStateType extends StateVariable {
+  setTopThreeActiveIPs: (ips: string[]) => void;
+  setTopThreeVisitedUrls: (urls: string[]) => void;
+  setUniqueIpCounter: (count: number) => void;
+  setDisplaySummary: (display: boolean) => void;
+  setErrorOccurred: (error: boolean) => void;
+  resetState: () => void;
+}
+
+export type {
+  StateVariable,
+  AnalyseLogfileResponse,
+  AnalyseResult,
+  ParserStateType,
+};

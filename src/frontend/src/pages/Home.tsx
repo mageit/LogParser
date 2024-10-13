@@ -1,8 +1,11 @@
 import React from "react";
 import LogParserUploader from "@/components/LogParserUploader";
 import LogParserSummary from "@/components/LogParserSummary";
+import { parserStateVars } from "@/hooks/ParserState";
 
 const Home: React.FC = (): React.ReactElement => {
+  const { errorOccurred } = parserStateVars();
+
   return (
     <section>
       <h1>Welcome to Log Parser!</h1>
@@ -17,7 +20,14 @@ const Home: React.FC = (): React.ReactElement => {
       <hr />
       <br />
       <LogParserUploader />
-      <LogParserSummary />
+      {errorOccurred ? (
+        <div>
+          <br />
+          Something went wrong, please try again later
+        </div>
+      ) : (
+        <LogParserSummary />
+      )}
     </section>
   );
 };

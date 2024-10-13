@@ -1,19 +1,26 @@
 import { create } from "zustand";
 import { ParserStateType } from "@/types/LogParserTypes";
+import { StateVariable } from "@/types/LogParserTypes";
+const initialState: StateVariable = {
+  topThreeActiveIPs: [],
+  topThreeVisitedUrls: [],
+  uniqueIpCounter: 0,
+  displaySummary: false,
+  errorOccurred: false,
+};
 
 const parserStateVars = create<ParserStateType>((set) => ({
-  topThreeActiveIPs: [],
+  ...initialState,
   setTopThreeActiveIPs: (ips: string[]) =>
     set(() => ({ topThreeActiveIPs: ips })),
-  topThreeVisitedUrls: [],
   setTopThreeVisitedUrls: (urls: string[]) =>
     set(() => ({ topThreeVisitedUrls: urls })),
-  uniqueIpCounter: 0,
   setUniqueIpCounter: (count: number) =>
     set(() => ({ uniqueIpCounter: count })),
-  displaySummary: false,
   setDisplaySummary: (display: boolean) =>
     set(() => ({ displaySummary: display })),
+  setErrorOccurred: (error: boolean) => set(() => ({ errorOccurred: error })),
+  resetState: () => set(() => ({ ...initialState })),
 }));
 
 export { parserStateVars };

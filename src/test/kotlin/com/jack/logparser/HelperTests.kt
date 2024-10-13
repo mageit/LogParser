@@ -24,6 +24,22 @@ class HelperTests {
     }
 
     @Test
+    fun `test a valid ip address`() {
+        val ip = "192.168.1.1"
+        Helper.isValidIP(ip).also {
+            assert(it)
+        }
+    }
+
+    @Test
+    fun `test an invalid ip address`() {
+        val ip = "xxx.xxx.xxx.xxx"
+        Helper.isValidIP(ip).also {
+            assert(!it)
+        }
+    }
+
+    @Test
     fun `test top three visited urls within the map`() {
         val urlCounterMap =
             mapOf(

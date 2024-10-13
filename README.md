@@ -22,7 +22,8 @@ Java SDK: Version 21 or higher (Amazon Corretto 21 in IntelliJ IDEA)
 `├──`[`src`] — A source folder includes both frontend and backend code.<br>
 `│   ├──`[`main`] — Contains the kotlin backend code.<br>
 `│   ├──`[`test`] — Contains the kotlin backend test code.<br>
-`└- ──`[`frontend`] — Contains the React typescript frontend.<br>
+`│   ├──`[`frontend`] — Contains the React typescript frontend.<br>
+`└─└───`[`screenshot`] — Contains the screenshots of the webapp.<br>
 
 ## API Endpoint 
 You can use Postman to test the API endpoint.

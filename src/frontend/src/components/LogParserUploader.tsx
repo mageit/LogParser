@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { analyseLogfile } from "@/services/api";
 import { AnalyseResult } from "@/types/LogParserTypes";
 import { parserStateVars } from "@/hooks/ParserState";
@@ -6,6 +6,7 @@ import { parserStateVars } from "@/hooks/ParserState";
 const LogParserUploader = () => {
   const [file, setFile] = React.useState<File | null>(null);
   const [isBusy, setIsBusy] = React.useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const {
     setTopThreeActiveIPs,
     setTopThreeVisitedUrls,
@@ -25,11 +26,13 @@ const LogParserUploader = () => {
     resetState();
     setFile(null);
     setIsBusy(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const handleUpload = async () => {
     try {
-      resetState();
       setIsBusy(true);
       const result: AnalyseResult | undefined = await analyseLogfile(
         file as File,
@@ -56,7 +59,9 @@ const LogParserUploader = () => {
           type="file"
           accept=".log"
           onChange={handleFileChange}
+          onClick={handleReset}
           data-testid="log-file-upload-button"
+          ref={fileInputRef}
         />
         <button onClick={handleReset}>Reset</button>
       </div>

@@ -27,10 +27,11 @@ Java SDK: Version 21 or higher (Amazon Corretto 21 in IntelliJ IDEA)
 
 ## Project Setup
 ### Frontend Installation
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory, assume you are in the root directory:
 ```bash
-cd frontend
+cd src/frontend
 ```
+
 2. Install the required dependencies:
 ```bash
 npm install
@@ -41,11 +42,7 @@ npm start
 ```
 
 ### Backend Installation
-1. Go to the root directory:
-```bash
-cd LogParser
-```
-2. Run gradle command
+1. Run gradle command, assume you are in the root directory:
 ```bash
 ./gradlew bootRun
 ```
@@ -65,9 +62,9 @@ For a streamlined development experience, using IntelliJ IDEA is recommended. It
 
 ## Unit test
 ### Frontend
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory, assume you are in the root directory:
 ```bash
-cd frontend
+cd src/frontend
 ```
 2. Run the following command:
 ```bash
@@ -75,11 +72,7 @@ npm test
 ```
 
 ### Backend
-1. Navigate to the root directory:
-```bash
-cd LogParser
-```
-2. Run the following command:
+2. Run the following command, assume you are in the root directory:
 ```bash
 ./gradlew test
 ```

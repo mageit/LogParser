@@ -85,6 +85,15 @@ npm test
 ./gradlew test
 ```
 
+## Potential Issue: CORS Errors
+If you're running the frontend on a different port than the default (5173), you may encounter Cross-Origin Resource Sharing (CORS) errors when attempting to communicate with the backend API.
+
+**To resolve this**:
+1. Navigate to the CorsConfig class:
+   - Locate the CorsConfig class in your backend project, typically located in the `src/main/kotlin/com.jack.logparser` package.
+2. Modify the `allowedOrigins` property:
+   - Within the `CorsConfig` class, find the `allowedOrigins` property and add the URL of your frontend server. `eg. http://localhost:3000`
+
 ## Thank you
 I'm happy to help with any questions you might have. Feel free to reach out to me at jzho21@gmail.com. 
 

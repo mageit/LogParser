@@ -10,8 +10,8 @@ This project is built on React typescript and Spring boot, providing a solid fou
 ## Project Requirements
 ### Frontend (React Typescript):
 
-Node.js: Version 20.14.0 or higher
-npm: Version 10.7.0 or higher
+Node version 20.14.0 or higher<br />
+npm version 10.7.0 or higher
 
 ### Backend (Spring Boot in Kotlin):
 

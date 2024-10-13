@@ -1,7 +1,11 @@
 # Log Parser
 ## Project Overview
 This project is designed to parse uploaded log files and extract key metrics such as the most active IP address, most visited links, and unique IP addresses. 
-It consists of a **frontend** built with **React JS** in TypeScript and a **backend** API developed using **Spring Boot in Kotlin**.
+It consists of a **frontend** built with **React Typescript** and a **backend** API developed using **Spring Boot in Kotlin**.<br /><br />
+This project is built on React typescript and Spring boot, providing a solid foundation for future expansion and customisation.
+
+## Recommended Tools ##
+- **IntelliJ IDEA**
 
 ## Project Requirements
 ### Frontend (React Typescript):

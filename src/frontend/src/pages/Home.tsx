@@ -17,6 +17,12 @@ const Home: React.FC = (): React.ReactElement => {
         Once you&apos;ve uploaded a compatible log file, the analysis process
         will commence automatically.
       </p>
+      <p>
+        <b>Download the sample data: </b>
+        <a href="/sample/sample-data.log" download>
+          sample-data.log
+        </a>
+      </p>
       <hr />
       <br />
       <LogParserUploader />

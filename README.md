@@ -1,4 +1,22 @@
 # Log Parser
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Recommended Tools](#recommended-tools)
+- [Project Requirements](#project-requirements)
+  - [Frontend (React Typescript)](#frontend-react-typescript)
+  - [Backend (Spring Boot in Kotlin)](#backend-spring-boot-in-kotlin)
+- [Directory Structure](#directory-structure)
+- [API Endpoint](#api-endpoint)
+- [Project Setup](#project-setup)
+  - [Frontend Installation](#frontend-installation)
+  - [Backend Installation](#backend-installation)
+  - [Additional Notes](#additional-notes)
+- [Unit test](#unit-test)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Potential Issue: CORS Errors](#potential-issue-cors-errors)
+- [Thank you](#thank-you)
+
 ## Project Overview
 This project is designed to parse uploaded log files and extract key metrics such as the most active IP address, most visited links, and unique IP addresses. 
 It consists of a **frontend** built with **React Typescript** and a **backend** API developed using **Spring Boot in Kotlin**.<br /><br />

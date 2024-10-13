@@ -41,8 +41,8 @@ Java SDK: Version 21 or higher (Amazon Corretto 21 in IntelliJ IDEA)
 `│   ├──`[`main`] — Contains the kotlin backend code.<br>
 `│   ├──`[`test`] — Contains the kotlin backend test code.<br>
 `│   ├──`[`frontend`] — Contains the React typescript frontend.<br>
-`└─└───`[`screenshot`] — Contains the screenshots of the webapp.<br>
-`└─└───`[`sample`] — Contains the sample data for testing purpose.<br>
+`│   ├───────   └───`[`sample`] — Contains the sample data for testing purpose.<br>
+`└───`[`screenshot`] — Contains the screenshots of the webapp.<br>
 
 ## API Endpoint 
 You can use Postman to test the API endpoint.

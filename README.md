@@ -18,7 +18,7 @@ npm version 10.7.0 or higher
 Java SDK: Version 21 or higher (Amazon Corretto 21 in IntelliJ IDEA)
 
 ## Directory Structure
-`root`<br>
+`root (LogParser)`<br>
 `├──`[`src`] — A source folder includes both frontend and backend code.<br>
 `│   ├──`[`main`] — Contains the kotlin backend code.<br>
 `│   ├──`[`test`] — Contains the kotlin backend test code.<br>

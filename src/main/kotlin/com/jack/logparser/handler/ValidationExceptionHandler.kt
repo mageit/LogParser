@@ -1,16 +1,11 @@
 package com.jack.logparser.handler
 
+import com.jack.logparser.api.response.ErrorResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
-
-data class ErrorResponse(
-    val status: HttpStatus,
-    val message: String,
-    val errors: Map<String, String> = emptyMap(),
-)
 
 @ControllerAdvice
 class ValidationExceptionHandler {
